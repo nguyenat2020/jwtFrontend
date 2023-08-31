@@ -1,6 +1,5 @@
 import './App.scss';
-import Nav from './components/Navigation/Nav';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {

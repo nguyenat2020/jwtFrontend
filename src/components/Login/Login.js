@@ -1,5 +1,4 @@
 import './Login.scss';
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
