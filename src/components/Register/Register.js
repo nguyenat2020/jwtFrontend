@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
 const [email, setEmail] = useState("");
@@ -17,8 +18,39 @@ const [confirmPassword, setConfirmPassword] = useState("");
     }
 
     const handleRegister = () => {
+        let check = isValidInputs();
         let userData = { email, phone, username, password };
         console.log(">>>check userData ", userData);
+    }
+
+    const isValidInputs = () => {
+        if(!email) {
+            toast.error("Email is required !");
+            return false;
+        }
+        if(!phone) {
+            toast.error("Phone number is required !");
+            return false;
+        }
+        if(!password) {
+            toast.error("Password is required !");
+            return false;
+        }
+
+        if(password !== confirmPassword) {
+            toast.error("Your Password is not the same !");
+            return false;
+        }
+
+        let regx = /\S+@\S+\.\S+/;
+
+        if(!regx.test(email)) {
+            toast.error("Your email is invalid !");
+            return false;
+        }
+        
+
+        return true;
     }
 
     useEffect(() => {

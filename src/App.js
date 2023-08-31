@@ -1,5 +1,7 @@
 import './App.scss';
 import Nav from './components/Navigation/Nav';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   BrowserRouter as Router,
@@ -22,22 +24,36 @@ function App() {
             About
           </Route>
           <Route path="/contact">
-          Contact
+            Contact
           </Route>
           <Route path="/about">
-          about
+            about
           </Route>
           <Route path="/login">
-            <Login/>
+            <Login />
           </Route>
           <Route path="/register">
-            <Register/>
+            <Register />
           </Route>
           <Route path="*">
-          404 Not found
+            404 Not found
           </Route>
         </Switch>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer />
     </Router>
   );
 }
